@@ -4,6 +4,7 @@
   --fontA:  'Audiowide', cursive;
   --fontB:  'Montserrat', sans-serif;
   --boxColor: rgba(0, 132, 255, 0.603);
+  --boxColorB: rgba(255, 230, 0, 0.603);
   --rotateSpeed: 32s;
   --bounceSpeed: 1.2s;
 }
@@ -106,6 +107,12 @@ body {
   align-items:flex-end;
   justify-content: center;
   // border: 1px solid red;
+
+  &.B {
+    width: 1em;
+    height: .4em;
+    align-items:center;
+  }
   
 
   & h2 {
@@ -115,6 +122,11 @@ body {
     font-family: var(--fontA);
     text-transform: uppercase;
     color: #fffa;
+
+    &.B {
+      font-size: 8px;
+    }
+    
 
   }
 
@@ -157,7 +169,7 @@ body {
 
 .cube2 {
   position: absolute;
-  bottom: -1.2em;
+  bottom: -1em;
   left: 2em;
   width: 1.2em;
   height: 1.2em;
@@ -175,10 +187,19 @@ body {
   border: 3px double rgb(0, 51, 99);
   box-shadow: 0 0 0.5em #000a inset;
 
+  &.B {
+    background:rgba(255, 230, 0, 0.603);
+    border: 3px double rgba(255, 230, 0, .85);
+  }
+
 }
 
 .front {  
   transform: translateZ(1em);
+
+  &.B {
+    transform: translateZ(.6em);
+  }
 }
 
 .right {  
@@ -188,14 +209,28 @@ body {
     top: auto;
     bottom: 0;
   }
+
+  &.B {
+    transform: rotateY(90deg) translateZ(.6em);
+  }
 }
 
 .back {  
   transform: rotateY(180deg) translateZ(1em);
+
+
+  &.B {
+    transform: rotateY(180deg) translateZ(.6em);
+  }
 }
 
 .left {  
   transform: rotateY(270deg) translateZ(1em);
+
+  &.B {
+    transform: rotateY(270deg) translateZ(.6em);
+  }
+  
 }
 
 .top {
@@ -205,6 +240,13 @@ body {
   transform:  translateY(-50%) rotateX(90deg); 
   background: var(--boxColor); 
   box-shadow: 0 0 0.5em #000a inset;
+
+  &.B {
+    width: 1.2em;
+    height: 1.2em; 
+    background:rgba(255, 230, 0, 0.603);
+    border: 3px double rgba(255, 230, 0, .85);
+  }
 }
 
 .bottom {
@@ -215,6 +257,15 @@ body {
   transform:  rotateX(90deg); 
   background: var(--boxColor); 
   box-shadow: 0 0 0.4em #000c, 0 0 0.8em var(--boxColor);
+
+  &.B {
+    width: 1.2em;
+    height: 1.2em; 
+    bottom: -.6em;
+    background:rgba(255, 230, 0, 0.603);
+    border: 3px double rgba(255, 230, 0, .85);
+    box-shadow: 0 0 0.1em #000c, 0 0 0.2em var(--boxColorB);
+  }
 }
 
 
@@ -229,3 +280,4 @@ body {
   repeating-conic-gradient(from 45deg, #111 0deg 90deg, rgb(77, 77, 77) 90deg 180deg);
   background-size: 100%, 1em 1em; 
 }
+
