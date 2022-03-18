@@ -6,7 +6,9 @@
   --boxColor: rgba(0, 132, 255, 0.603);
   --boxColorB: rgba(255, 217, 0, 0.65);
   --rotateSpeed: 32s;
+  --rotateBox: 6s;
   --bounceSpeed: 1.2s;
+  --cameraHight: -2em;
 }
 
 *,
@@ -33,7 +35,7 @@ body {
   align-items: center;
   font-size: 50px;
   perspective: 10em;
-  perspective-origin: 50% calc(50% - 2em);
+  perspective-origin: 50% calc(50% + var(--cameraHight));
   overflow: hidden;
 }
 
@@ -182,7 +184,24 @@ body {
   width: 1.2em;
   height: 1.2em;
   transform-style: preserve-3d;
-  transform: translateZ(2em) rotateY(45deg);
+  transform: translateZ(2em) rotateY(-45deg);
+
+  &.animation {
+    animation: cubeRotate var(--rotateBox) infinite linear;
+  }
+
+  @keyframes cubeRotate {
+    0% {
+      transform: translateZ(2em) rotateY(-45deg);
+    }
+    50% {
+      transform: translateZ(2em) rotateY(-225deg);
+    }
+
+    100% {
+      transform: translateZ(2em) rotateY(-405deg);
+    }
+  }
 }
 
 .left,
@@ -398,6 +417,15 @@ input:checked[type="checkbox"]:before {
   padding-top: 5px;
   width: 100%; /* Width of the outside container */
   height: 40%;
+
+  & h3 {
+    font-size: 9px;
+    text-align: center;
+    font-family: var(--fontB);
+    margin-top: 33px;
+    margin-left: 3px;
+    // border: 1px solid red;
+  }
 }
 
 .slider {
