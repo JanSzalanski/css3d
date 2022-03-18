@@ -245,6 +245,7 @@ body {
 }
 
 .cube2 {
+  display: none;
   position: absolute;
   bottom: -1em;
   left: 2em;
@@ -259,6 +260,10 @@ body {
 .cube2.animation {
   -webkit-animation: cubeRotate var(--rotateBox) infinite linear;
           animation: cubeRotate var(--rotateBox) infinite linear;
+}
+
+.cube2.visibilty {
+  display: block;
 }
 
 @-webkit-keyframes cubeRotate {
@@ -428,6 +433,15 @@ body {
   border-radius: 10px;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
+}
+
+@media (max-width: 480px) {
+  .menu {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    bottom: 40px;
+  }
 }
 
 .titleB {
